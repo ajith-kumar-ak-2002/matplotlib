@@ -34,3 +34,15 @@ conda install matplotlib
 ```
 
 ---
+
+## How to Import Matplotlib
+
+To use Matplotlib in your Python scripts or Jupyter Notebooks, you typically import the `pyplot` module. It is a standard convention to alias it as `plt`:
+
+```python
+import matplotlib.pyplot as plt
+
+# Verify installation by printing the version
+import matplotlib
+print("Matplotlib version:", matplotlib.__version__)
+```
