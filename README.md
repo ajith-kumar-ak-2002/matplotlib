@@ -14,3 +14,23 @@ Key features include:
 - **Exporting:** Export figures to various file formats (PNG, PDF, SVG, etc.) and interactive environments.
 
 ---
+
+## How to Install Matplotlib
+
+You can install Matplotlib using package managers like `pip` or `conda`.
+
+### Option 1: Using pip (Recommended)
+Run the following command in your terminal or command prompt:
+
+```bash
+pip install matplotlib
+```
+
+### Option 2: Using Conda
+If you are using the Anaconda distribution, run:
+
+```bash
+conda install matplotlib
+```
+
+---
