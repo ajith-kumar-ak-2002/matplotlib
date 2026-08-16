@@ -1,9 +1,3 @@
-# Matplotlib Guide
-
-This guide provides an introduction to Matplotlib, installation instructions, and how to import it into your Python environment.
-
----
-
 ## What is Matplotlib?
 
 **Matplotlib** is a comprehensive library for creating static, animated, and interactive visualizations in Python. It is widely used in data science, machine learning, and scientific research for plotting data.
