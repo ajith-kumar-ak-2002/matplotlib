@@ -65,3 +65,41 @@ plt.show()
 ```
 
 ---
+
+## Plotting Equations with NumPy and Matplotlib
+
+You can also use NumPy along with Matplotlib to plot mathematical functions, such as linear and quadratic equations.
+
+A script demonstrating how to plot a linear equation is available at [`readme/Liner_Equation.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/readme/Liner_Equation.py).
+
+### Linear Equation Example (`y = 2x + 3`)
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 1. Generate x values using NumPy
+x = np.linspace(start=-10, stop=10, num=400)
+
+# 2. Define the linear equation parameters (y = mx + c)
+m = 2  # Slope
+c = 3  # Y-intercept
+y = m * x + c
+
+# 3. Create the plot
+plt.plot(x, y, label='y = 2x + 3')
+plt.title('Plot of the Linear Equation')
+# Limit axes to focus on specific ranges if desired
+plt.xlim(0, 10)
+plt.ylim(0, 20)
+
+# 4. Add formatting and legend
+plt.xlabel('x')
+plt.ylabel('y')
+plt.grid(True)
+plt.legend()
+
+# 5. Save and show the plot
+plt.savefig('Linear-Equation.png')  # Note: Save before show() to avoid blank images
+plt.show()
+```
