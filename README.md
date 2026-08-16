@@ -40,3 +40,28 @@ import matplotlib.pyplot as plt
 import matplotlib
 print("Matplotlib version:", matplotlib.__version__)
 ```
+
+### Simple Usage Example
+
+Here is a quick example to plot a simple line:
+
+```python
+import matplotlib.pyplot as plt
+
+# Data
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]
+
+# Create a plot
+plt.plot(x, y, marker='o')
+
+# Add titles and labels
+plt.title("Simple Line Plot")
+plt.xlabel("X Axis")
+plt.ylabel("Y Axis")
+
+# Display the plot
+plt.show()
+```
+
+---
