@@ -28,3 +28,21 @@ plt.grid(True)
 plt.legend()
 plt.show()
 plt.savefig('Linear-Equation.png')
+
+'''
+In this code:
+
+. np.linspace(start, stop, num) generates num evenly spaced samples, calculated over the interval [start, stop].
+. plt.plot(x, y, label) plots y versus x as lines and/or markers with an optional label.
+. plt.title(), plt.xlabel(), and plt.ylabel() are used to add a title and labels to the axes.
+. plt.grid(True) enables a grid to make reading the plot easier.
+. plt.savefig() allows you to save the figure in various file formats such as PNG, JPEG, SVG, PDF, and more.
+. plt.show() displays the plot.
+This will produce a graph of the linear equation y = 2x + 3, showing a straight line that cuts through the y-axis at 3 and has a slope of 2, rising
+two units in y for every increase of one unit in x.
+
+A quadratic equation typically has the form y = ax^2 + bx + c, where a, b and c are constants.
+Here's how you can plot the quadratic equation y = x^2 - 4x + 4:
+
+'''
+

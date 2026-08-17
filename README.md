@@ -170,3 +170,51 @@ ax.set_ylabel('Amplitude')
 # 5. Display the figure
 plt.show()
 ```
+
+---
+
+## Basic Plotting & Formatting
+
+You can customize plot lines, markers, and colors by passing format strings (e.g., `'o:r'`) or explicit parameter names (e.g., `marker='o'`) to the `plot()` function.
+
+A comprehensive demo is available in [`Basic.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Basic.py).
+
+### Quick Reference
+
+* **Line Styles**: `'-'` (solid), `':'` (dotted), `'--'` (dashed), `'-.'` (dashed/dotted)
+* **Common Colors**: `'r'` (red), `'g'` (green), `'b'` (blue), `'c'` (cyan), `'m'` (magenta), `'y'` (yellow), `'k'` (black), `'w'` (white)
+
+---
+
+## Arranging Multiple Axes in a Single Figure
+
+You can place multiple coordinate grids (Axes) on a single Figure at arbitrary positions using `fig.add_axes([left, bottom, width, height])`.
+
+A demo of placing multiple overlapping or structured axes is available in [`matplotlib_mutiple_figures.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/matplotlib_mutiple_figures.py).
+
+---
+
+## Creating Structured Layouts with Subplots
+
+Instead of specifying manual coordinates, you can use `plt.subplots(rows, cols)` to generate a grid of subplots automatically.
+
+A detailed script demonstrating layout configurations (including sharing axes and custom styling) is available in [`matplotlib_subplot.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/matplotlib_subplot.py).
+
+### Subplot Grid Example
+
+```python
+import matplotlib.pyplot as plt
+
+# Create a 2x2 grid of subplots with shared Y axes
+fig, axs = plt.subplots(2, 2, figsize=(10, 8), sharey=True)
+
+# Plot onto individual subplots by index
+axs[0, 0].plot([1, 2, 3], [1, 4, 9])
+axs[0, 1].plot([1, 2, 3], [1, 2, 3])
+axs[1, 0].plot([1, 2, 3], [3, 2, 1])
+axs[1, 1].plot([1, 2, 3], [9, 4, 1])
+
+plt.tight_layout() # Optimizes spacing between subplots
+plt.show()
+```
+
