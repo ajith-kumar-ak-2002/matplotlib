@@ -103,3 +103,22 @@ plt.legend()
 plt.savefig('Linear-Equation.png')  # Note: Save before show() to avoid blank images
 plt.show()
 ```
+
+### Quadratic Equation Example (`y = x^2 - 4x + 4`)
+
+A quadratic equation typically has the form `y = ax^2 + bx + c`. A script demonstrating this is available at [`quadratic_equation.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/quadratic_equation.py).
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 1. Define coefficients
+a = 1
+b = -4
+c = 4
+
+# 2. Generate x values
+x = np.linspace(-1, 7, 400)
+
+# 3. Calculate y values
+y = a * (x ** 2) + b * x + c
