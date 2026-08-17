@@ -70,7 +70,7 @@ plt.show()
 
 You can also use NumPy along with Matplotlib to plot mathematical functions, such as linear and quadratic equations.
 
-A script demonstrating how to plot a linear equation is available at [`readme/Liner_Equation.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/readme/Liner_Equation.py).
+A script demonstrating how to plot a linear equation is available at [`Liner_Equation.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Liner_Equation.py).
 
 ### Linear Equation Example (`y = 2x + 3`)
 
