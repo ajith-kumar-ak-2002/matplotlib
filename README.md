@@ -122,3 +122,17 @@ x = np.linspace(-1, 7, 400)
 
 # 3. Calculate y values
 y = a * (x ** 2) + b * x + c
+
+# 4. Create the plot
+plt.plot(x, y, label='y = x^2 - 4x + 4')
+plt.title('Plot of the Quadratic Equation')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.grid(True)
+plt.legend()
+
+# 5. Display the plot
+plt.show()
+```
+
+---
