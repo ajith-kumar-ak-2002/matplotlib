@@ -136,3 +136,37 @@ plt.show()
 ```
 
 ---
+
+## Understanding the Figure and Axes Objects
+
+In Matplotlib, the **Figure** object acts as the top-level container/canvas that holds all plot elements (axes, text, labels, etc.). The **Axes** object is the actual plotting area containing the coordinate grid.
+
+A script demonstrating how to work with these objects is available at [`matplotlib_figure_object.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/matplotlib_figure_object.py).
+
+### Customizing Figure and Axes
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# 1. Create a Figure container with a specific size
+fig = plt.figure(figsize=(8, 6))
+
+# 2. Add an Axes container to the figure (dimensions: [left, bottom, width, height] relative to figure)
+ax = fig.add_axes([0.1, 0.1, 0.85, 0.85])
+
+# 3. Plot data directly on the axes
+ax.plot(x, y, label='sin(x)', color='blue')
+
+# 4. Customize labels using the axes methods
+ax.set_title('Simple Plot of sin(x)')
+ax.set_xlabel('x')
+ax.set_ylabel('Amplitude')
+
+# 5. Display the figure
+plt.show()
+```
