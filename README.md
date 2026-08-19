@@ -64,22 +64,62 @@ Now, the `plt` object can be used to draw all kinds of plots.
 
 ## 4. Matplotlib Plotting
 
-Plotting is done by passing arrays of coordinates to the `plot()` function.
-* **Basic Line:** Draw a line from `(0, 0)` to `(6, 250)`:
+The `plot()` function is used to draw points (markers) or lines in a diagram. By default, it draws a line from point to point. It takes parameters for specifying points in the diagram:
+* **Parameter 1:** An array containing the points on the **x-axis**.
+* **Parameter 2:** An array containing the points on the **y-axis**.
+
+### 1. Plotting X and Y Points
+To draw a line between specified coordinate points, pass two arrays representing the x-coordinates and y-coordinates:
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
 
-x_points = np.array([0, 6])
-y_points = np.array([0, 250])
+# Draw a line from (1, 3) to (8, 10)
+x_points = np.array([1, 8])
+y_points = np.array([3, 10])
 
 plt.plot(x_points, y_points)
 plt.show()
 ```
-* **Plotting Without X-Points:** If we do not specify the points on the x-axis, they will get default values `0, 1, 2, 3...` depending on the length of the y-points:
+
+### 2. Plotting Without Line
+To plot only the markers without drawing a connecting line, you can pass a third parameter such as `'o'` (which stands for rings/circles):
 ```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Draw two points at (1, 3) and (8, 10) without a line
+x_points = np.array([1, 8])
+y_points = np.array([3, 10])
+
+plt.plot(x_points, y_points, 'o')
+plt.show()
+```
+
+### 3. Multiple Points
+You can plot as many points as you like. Just make sure you have the same number of points in both axes:
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Draw a line through points (1, 3) -> (2, 8) -> (6, 1) -> (8, 10)
+x_points = np.array([1, 2, 6, 8])
 y_points = np.array([3, 8, 1, 10])
-plt.plot(y_points)
+
+plt.plot(x_points, y_points)
+plt.show()
+```
+
+### 4. Default X-Points
+If we do not specify the points on the x-axis, the x-axis points will automatically get the default values `[0, 1, 2, 3, ...]` (depending on the length of the y-points):
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Plotting y-points only; x-points default to [0, 1, 2, 3, 4, 5]
+y_points = np.array([2, 4, 5, 6, 7, 10])
+
+plt.plot(y_points, 'o')  # Plot as points only
 plt.show()
 ```
 
