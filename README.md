@@ -204,3 +204,65 @@ plt.show()
 | `'w'` | White |
 
 ---
+
+### Marker Size
+You can use the keyword argument `markersize` or the shorter version `ms` to set the size of the markers:
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+y_points = np.array([3, 8, 1, 10])
+
+# Set the size of the markers to 20
+plt.plot(y_points, marker='o', ms=20)
+plt.show()
+```
+
+---
+
+### Marker Color
+You can use the keyword arguments `markeredgecolor` (or `mec`) and `markerfacecolor` (or `mfc`) to customize the colors of the markers:
+* **`mec` (Marker Edge Color):** Set the color of the outline/edge of the marker.
+* **`mfc` (Marker Face Color):** Set the color of the inside/face of the marker.
+
+#### Use both `mec` and `mfc`
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+y_points = np.array([3, 8, 1, 10])
+
+# Set the marker edge to red (mec='r') and the marker face to green (mfc='g')
+plt.plot(y_points, marker='o', ms=20, mec='r', mfc='g')
+plt.show()
+```
+
+---
+
+## 6. Matplotlib Line
+
+You can use the keyword argument `linestyle` or `ls` to change the style of the plotted line.
+
+* Implementation Reference: [`Linestyle.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Linestyle.py)
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+y_points = np.array([3, 8, 1, 10])
+
+# Style the line as dashed ('--'), make it green, and set the line width (lw=2.5)
+plt.plot(y_points, ls='--', color='green', lw=2.5)
+plt.show()
+```
+
+### Line Formatting Options
+* **Styles (`linestyle` / `ls`):**
+  * `'solid'` or `'-'` (Default)
+  * `'dotted'` or `':'`
+  * `'dashed'` or `'--'`
+  * `'dashdot'` or `'-.'`
+* **Width (`linewidth` / `lw`):** Accepts a float representing point width (e.g., `lw=20.5`).
+
+---
