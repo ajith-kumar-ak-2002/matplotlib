@@ -1,5 +1,4 @@
 # pyrefly: ignore [missing-import]
-from importlib import machinery
 import matplotlib.pyplot as plt
 # pyrefly: ignore [missing-import]
 import numpy as np
@@ -52,8 +51,43 @@ import numpy as np
 # plt.show()
 
 
-#Mark each point with a circle:
-y_point = np.array([3, 8, 1 , 10])
+# #Mark each point with a circle:
+# y_point = np.array([3, 8, 1 , 10])
 
-plt.plot(y_point, 'o:r')
-plt.show()
+# plt.plot(y_point, 'o:r')
+# plt.show()
+
+'''
+Line Syntax	Description
+'-'	    Solid line	
+':'	    Dotted line	
+'--'	Dashed line	
+'-.'	Dashed/dotted line
+
+
+Color Reference
+Color Syntax	Description
+        'r'	Red	
+        'g'	Green	
+        'b'	Blue	
+        'c'	Cyan	
+        'm'	Magenta	
+        'y'	Yellow	
+        'k'	Black	
+        'w'	White
+
+
+'''
+
+
+# #Set the size of the markers to 20:
+# y_point = np.array([3, 8, 1, 10])
+
+# plt.plot(y_point , marker = 'o', ms = 20)
+# plt.show()
+
+
+#Set the EDGE color to red:
+y_point = np.array([3, 8, 1, 10])
+
+plt.plot(y_point , marker = 'o', ms = 20 , mec = 'r')
