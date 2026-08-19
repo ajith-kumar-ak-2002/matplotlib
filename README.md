@@ -126,3 +126,81 @@ plt.show()
 Refer to [`Basic.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Basic.py) for practical plotting examples.
 
 ---
+
+## 5. Matplotlib Markers
+
+You can use the keyword argument `marker` to emphasize each coordinate point with a specific symbol/marker.
+
+* Implementation Reference: [`Basic.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Basic.py)
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+y_points = np.array([3, 8, 1, 10])
+
+# Mark each point with a circle
+plt.plot(y_points, marker='o')
+plt.show()
+```
+
+### Marker Reference Table
+You can choose any of these marker symbols:
+| Marker Syntax | Description |
+| :--- | :--- |
+| `'o'` | Circle |
+| `'*'` | Star |
+| `'.'` | Point |
+| `','` | Pixel |
+| `'x'` | X |
+| `'X'` | X (filled) |
+| `'+'` | Plus |
+| `'P'` | Plus (filled) |
+| `'s'` | Square |
+| `'d'` | Diamond |
+| `'D'` | Diamond (filled) |
+| `'p'` | Pentagon |
+| `'H'` | Hexagon |
+| `'v'` | Triangle Down |
+| `'^'` | Triangle Up |
+| `'<'` | Triangle Left |
+| `'>'` | Triangle Right |
+
+---
+
+### Format Strings `fmt`
+You can also use the shortcut string notation parameter `fmt` to specify the marker, line style, and color.
+The format parameter is written with this syntax: `marker|line|color`
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+y_points = np.array([3, 8, 1, 10])
+
+# 'o:r' means Circle marker, Dotted line, Red color
+plt.plot(y_points, 'o:r')
+plt.show()
+```
+
+#### Line Reference
+| Line Syntax | Description |
+| :--- | :--- |
+| `'-'` | Solid line |
+| `':'` | Dotted line |
+| `'--'` | Dashed line |
+| `'-.'` | Dashed/dotted line |
+
+#### Color Reference
+| Color Syntax | Description |
+| :--- | :--- |
+| `'r'` | Red |
+| `'g'` | Green |
+| `'b'` | Blue |
+| `'c'` | Cyan |
+| `'m'` | Magenta |
+| `'y'` | Yellow |
+| `'k'` | Black |
+| `'w'` | White |
+
+---
