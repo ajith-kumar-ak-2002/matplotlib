@@ -266,3 +266,91 @@ plt.show()
 * **Width (`linewidth` / `lw`):** Accepts a float representing point width (e.g., `lw=20.5`).
 
 ---
+
+## 7. Matplotlib Labels
+
+Use the `xlabel()` and `ylabel()` functions to add labels to the axes, and the `title()` function to add a title to the plot.
+
+* Implementation Reference: [`label&title.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/label&title.py)
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+y = 2 * x + 3
+
+plt.plot(x, y)
+plt.title("Linear Equation Plot")
+plt.xlabel("X Axis Value")
+plt.ylabel("Y Axis Value")
+plt.show()
+```
+
+---
+
+## 8. Matplotlib Grid
+
+Use the `grid()` function to add gridlines to the plot. You can customize the axis (e.g., `axis='x'`), line style, color, and width of the grid.
+
+* Implementation Reference: [`Liner_Equation.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Liner_Equation.py)
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(-10, 10, 100)
+y = x**2
+
+plt.plot(x, y)
+plt.grid(color='gray', linestyle='--', linewidth=0.5)
+plt.show()
+```
+
+---
+
+## 9. Matplotlib Subplot
+
+The `subplots()` function is used to create layouts with multiple plots on a single figure container.
+
+* Implementation Reference: [`matplotlib_subplot.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/matplotlib_subplot.py)
+
+```python
+import matplotlib.pyplot as plt
+
+# Create a 2x2 grid of subplots
+fig, axs = plt.subplots(2, 2, figsize=(10, 8))
+
+# Plot on individual axes
+axs[0, 0].plot([1, 2, 3], [1, 4, 9])
+axs[0, 1].plot([1, 2, 3], [1, 2, 3])
+axs[1, 0].plot([1, 2, 3], [3, 2, 1])
+axs[1, 1].plot([1, 2, 3], [9, 4, 1])
+
+plt.tight_layout()  # Automatically adjusts subplot margins to avoid overlapping
+plt.show()
+```
+
+---
+
+## 10. Matplotlib Scatter
+
+Use the `scatter()` function to draw a scatter plot. It requires two arrays of the same length, one for the x-axis and one for the y-axis.
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Set random seed for reproducibility
+np.random.seed(42)
+x = np.random.normal(5.0, 1.0, 100)
+y = np.random.normal(10.0, 2.0, 100)
+
+plt.scatter(x, y, color='purple', alpha=0.7)
+plt.title("Scatter Plot Example")
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.show()
+```
+
+---
