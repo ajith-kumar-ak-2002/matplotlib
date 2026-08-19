@@ -146,7 +146,7 @@ plt.show()
 
 Use the `xlabel()` and `ylabel()` functions to add labels to the axes, and the `title()` function to add a title to the plot.
 
-* Implementation Reference: [`Liner_Equation.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Liner_Equation.py)
+* Implementation Reference: [`label&title.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/label&title.py)
 
 ```python
 import matplotlib.pyplot as plt
