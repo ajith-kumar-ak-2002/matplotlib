@@ -1,242 +1,286 @@
-# Matplotlib Practice & Reference Guide
+# Python Matplotlib Tutorial & Reference Guide
 
-Welcome to the **Matplotlib Study and Reference Repository**! This project contains a collection of Python scripts demonstrating the core concepts of [Matplotlib](https://matplotlib.org/)—from basic line plotting and mathematical equation visualization to complex multi-axes figures and structured layouts.
-
-> [!NOTE]
-> This repository serves as a self-paced guide for learning Matplotlib, complete with runnable code examples, parameter references, and conceptual explanations.
+Welcome to the **Python Matplotlib** learning journey! This repository is organized as a structured tutorial following the learning path shown below. Each section features a detailed explanation and runnable Python examples.
 
 ---
 
-## Table of Contents
+## 🗺️ Learning Path
 
-1. [What is Matplotlib?](#what-is-matplotlib)
-2. [Installation](#installation)
-3. [Quick Start & Import](#quick-start--import)
-4. [Project Overview & Scripts](#project-overview--scripts)
-5. [Visualizing Equations](#visualizing-equations)
-    - [Linear Equations](#linear-equations)
-    - [Quadratic Equations](#quadratic-equations)
-6. [Understanding Figures & Axes](#understanding-figures--axes)
-    - [Figure vs Axes](#figure-vs-axes)
-    - [Arranging Multiple Custom Axes](#arranging-multiple-custom-axes)
-7. [Creating Structured Layouts with Subplots](#creating-structured-layouts-with-subplots)
-8. [Formatting & Styling Reference](#formatting--styling-reference)
-
----
-
-## What is Matplotlib?
-
-**Matplotlib** is a comprehensive library for creating static, animated, and interactive visualizations in Python. It is widely used in data science, machine learning, and scientific research for plotting data.
-
-Key features include:
-* **Easy plotting:** Create plots, histograms, power spectra, bar charts, error charts, scatterplots, etc., with just a few lines of code.
-* **Customizable:** Full control over line styles, font properties, axes properties, and more.
-* **Exporting:** Export figures to various file formats (PNG, PDF, SVG, etc.) and interactive environments.
+* [Matplotlib Intro](#1-matplotlib-intro)
+* [Matplotlib Get Started](#2-matplotlib-get-started)
+* [Matplotlib Pyplot](#3-matplotlib-pyplot)
+* [Matplotlib Plotting](#4-matplotlib-plotting)
+* [Matplotlib Markers](#5-matplotlib-markers)
+* [Matplotlib Line](#6-matplotlib-line)
+* [Matplotlib Labels](#7-matplotlib-labels)
+* [Matplotlib Grid](#8-matplotlib-grid)
+* [Matplotlib Subplot](#9-matplotlib-subplot)
+* [Matplotlib Scatter](#10-matplotlib-scatter)
+* [Matplotlib Bars](#11-matplotlib-bars)
+* [Matplotlib Histograms](#12-matplotlib-histograms)
+* [Matplotlib Pie Charts](#13-matplotlib-pie-charts)
 
 ---
 
-## Installation
+## 1. Matplotlib Intro
 
-You can install Matplotlib using package managers like `pip` or `conda`.
+**Matplotlib** is a low-level graph plotting library in Python that serves as a visualization utility. It was created by John D. Hunter and is open-source.
 
-### Option 1: Using pip (Recommended)
-Run the following command in your terminal:
+### Key Capabilities
+* **Interactive Figures:** Zoom, pan, and update plots dynamically.
+* **Highly Customizable:** Adjust line styles, colors, markers, font styles, and axes properties.
+* **Multiple Formats:** Export figures to SVG, PDF, PNG, etc.
+
+---
+
+## 2. Matplotlib Get Started
+
+To start using Matplotlib, install it along with NumPy (used for handling numerical arrays/data):
+
 ```bash
 pip install matplotlib numpy
 ```
 
-### Option 2: Using Conda
-If you are using the Anaconda distribution, run:
-```bash
-conda install matplotlib numpy
-```
-
----
-
-## Quick Start & Import
-
-To use Matplotlib in your Python scripts or Jupyter Notebooks, you typically import the `pyplot` module. It is a standard convention to alias it as `plt`:
-
+### Verification Script
+Run the following script to check if the installation succeeded:
 ```python
-import matplotlib.pyplot as plt
-
-# Verify installation by printing the version
 import matplotlib
 print("Matplotlib version:", matplotlib.__version__)
 ```
 
-### Simple Line Plot Example
-Here is a quick example to plot a simple line:
+---
+
+## 3. Matplotlib Pyplot
+
+Most of the Matplotlib utilities lie under the `pyplot` submodule, and are usually imported under the `plt` alias:
+
 ```python
 import matplotlib.pyplot as plt
-
-# Data
-x = [1, 2, 3, 4, 5]
-y = [2, 4, 6, 8, 10]
-
-# Create a plot
-plt.plot(x, y, marker='o')
-
-# Add titles and labels
-plt.title("Simple Line Plot")
-plt.xlabel("X Axis")
-plt.ylabel("Y Axis")
-
-# Display the plot
-plt.show()
 ```
 
----
-
-## Project Overview & Scripts
-
-Here is a summary of the reference scripts available in this repository:
-
-| Script File | Description | Key Matplotlib Features |
-| :--- | :--- | :--- |
-| [`Basic.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Basic.py) | Customizing markers, colors, line styles, and marker edges. | `plt.plot()`, `marker`, `ms`, `mec` |
-| [`Liner_Equation.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Liner_Equation.py) | Plotting a linear equation (`y = mx + c`) using NumPy arrays. | `np.linspace()`, `plt.xlim()`, `plt.ylim()`, `plt.grid()`, `plt.savefig()` |
-| [`quadratic_equation.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/quadratic_equation.py) | Plotting a quadratic curve (`y = ax^2 + bx + c`). | Mathematical expressions, plotting curves |
-| [`matplotlib_figure_object.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/matplotlib_figure_object.py) | Creating figure containers and adding custom axes explicitly. | `plt.figure()`, `fig.add_axes()`, `ax.plot()`, `ax.set_title()` |
-| [`matplotlib_mutiple_figures.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/matplotlib_mutiple_figures.py) | Positioning 6 different axes on a single figure canvas. | `fig.add_axes([left, bottom, width, height])` positioning |
-| [`matplotlib_subplot.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/matplotlib_subplot.py) | Creating structured grids of subplots. | `plt.subplots()`, sharing axes, `plt.tight_layout()` |
+Now, the `plt` object can be used to draw all kinds of plots.
 
 ---
 
-## Visualizing Equations
+## 4. Matplotlib Plotting
 
-Using NumPy along with Matplotlib allows you to plot continuous mathematical functions easily.
-
-### Linear Equations
-A linear equation has the form `y = mx + c`, where `m` is the slope and `c` is the y-intercept. 
-* Implementation: [`Liner_Equation.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Liner_Equation.py)
-
+Plotting is done by passing arrays of coordinates to the `plot()` function.
+* **Basic Line:** Draw a line from `(0, 0)` to `(6, 250)`:
 ```python
+import matplotlib.pyplot as plt
 import numpy as np
-import matplotlib.pyplot as plt
 
-# Generate 400 points from -10 to 10
-x = np.linspace(-10, 10, 400)
-m, c = 2, 3
-y = m * x + c
+x_points = np.array([0, 6])
+y_points = np.array([0, 250])
 
-plt.plot(x, y, label='y = 2x + 3')
-plt.title('Plot of the Linear Equation')
-plt.xlim(0, 10)
-plt.ylim(0, 20)
-plt.xlabel('x')
-plt.ylabel('y')
-plt.grid(True)
-plt.legend()
-plt.savefig('Linear-Equation.png')  # Save figure first!
+plt.plot(x_points, y_points)
+plt.show()
+```
+* **Plotting Without X-Points:** If we do not specify the points on the x-axis, they will get default values `0, 1, 2, 3...` depending on the length of the y-points:
+```python
+y_points = np.array([3, 8, 1, 10])
+plt.plot(y_points)
 plt.show()
 ```
 
-### Quadratic Equations
-A quadratic equation typically has the form `y = ax^2 + bx + c`.
-* Implementation: [`quadratic_equation.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/quadratic_equation.py)
+Refer to [`Basic.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Basic.py) for practical plotting examples.
+
+---
+
+## 5. Matplotlib Markers
+
+You can use the keyword argument `marker` to emphasize each coordinate point with a specific marker.
+
+* Implementation Reference: [`Basic.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Basic.py)
 
 ```python
+import matplotlib.pyplot as plt
 import numpy as np
+
+y_points = np.array([3, 8, 1, 10])
+
+# Mark each point with a circle ('o'), set size (ms=20), and outline color (mec='r')
+plt.plot(y_points, marker='o', ms=20, mec='r')
+plt.show()
+```
+
+### Marker Reference Table
+| Marker | Description |
+| :--- | :--- |
+| `'o'` | Circle |
+| `'*'` | Star |
+| `'.'` | Point |
+| `'x'` | X |
+| `'+'` | Plus |
+
+---
+
+## 6. Matplotlib Line
+
+You can use the keyword argument `linestyle` or `ls` to change the style of the plotted line.
+
+* Implementation Reference: [`Linestyle.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Linestyle.py)
+
+```python
 import matplotlib.pyplot as plt
+import numpy as np
 
-a, b, c = 1, -4, 4
-x = np.linspace(-1, 7, 400)
-y = a * (x ** 2) + b * x + c
+y_points = np.array([3, 8, 1, 10])
 
-plt.plot(x, y, label='y = x^2 - 4x + 4')
-plt.title('Plot of the Quadratic Equation')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.grid(True)
-plt.legend()
+# Style the line as dashed ('--'), make it green, and set the line width (lw=2.5)
+plt.plot(y_points, ls='--', color='green', lw=2.5)
+plt.show()
+```
+
+### Line Formatting Options
+* **Styles (`linestyle` / `ls`):**
+  * `'solid'` or `'-'` (Default)
+  * `'dotted'` or `':'`
+  * `'dashed'` or `'--'`
+  * `'dashdot'` or `'-.'`
+* **Width (`linewidth` / `lw`):** Accepts a float representing point width (e.g., `lw=20.5`).
+
+---
+
+## 7. Matplotlib Labels
+
+Use the `xlabel()` and `ylabel()` functions to add labels to the axes, and the `title()` function to add a title to the plot.
+
+* Implementation Reference: [`Liner_Equation.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Liner_Equation.py)
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+y = 2 * x + 3
+
+plt.plot(x, y)
+plt.title("Linear Equation Plot")
+plt.xlabel("X Axis Value")
+plt.ylabel("Y Axis Value")
 plt.show()
 ```
 
 ---
 
-## Understanding Figures & Axes
+## 8. Matplotlib Grid
 
-### Figure vs Axes
-* **Figure** (`fig`): The overall canvas window that holds all plots, titles, legends, etc.
-* **Axes** (`ax`): The actual individual plot grid containing the x/y data, labels, and ticks.
+Use the `grid()` function to add gridlines to the plot. You can customize the axis (e.g., `axis='x'`), line style, color, and width of the grid.
 
-* Implementation: [`matplotlib_figure_object.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/matplotlib_figure_object.py)
+* Implementation Reference: [`Liner_Equation.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Liner_Equation.py)
 
 ```python
-# 1. Create a Figure container
-fig = plt.figure(figsize=(8, 6))
+import matplotlib.pyplot as plt
+import numpy as np
 
-# 2. Add an Axes container explicitly: [left, bottom, width, height] relative to figure (0 to 1)
-ax = fig.add_axes([0.1, 0.1, 0.85, 0.85])
+x = np.linspace(-10, 10, 100)
+y = x**2
 
-# 3. Plot and customize using Axes methods
-ax.plot(x, y, label='Data')
-ax.set_title('Custom Axes Plot')
-ax.set_xlabel('X')
-ax.set_ylabel('Y')
-```
-
-### Arranging Multiple Custom Axes
-You can position multiple Axes containers on the same figure canvas at custom fractional coordinates.
-* Implementation: [`matplotlib_mutiple_figures.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/matplotlib_mutiple_figures.py)
-
-```python
-# Add multiple axes at manual positions:
-axes_center = fig.add_axes([0.3, 0.3, 0.4, 0.4])
-axes_top = fig.add_axes([0.3, 0.75, 0.4, 0.2])
-axes_right = fig.add_axes([0.75, 0.3, 0.2, 0.4])
+plt.plot(x, y)
+plt.grid(color='gray', linestyle='--', linewidth=0.5)
+plt.show()
 ```
 
 ---
 
-## Creating Structured Layouts with Subplots
+## 9. Matplotlib Subplot
 
-Instead of specifying manual coordinates, you can use `plt.subplots(rows, cols)` to generate a grid of subplots automatically.
-* Implementation: [`matplotlib_subplot.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/matplotlib_subplot.py)
+The `subplots()` function is used to create layouts with multiple plots on a single figure container.
+
+* Implementation Reference: [`matplotlib_subplot.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/matplotlib_subplot.py)
 
 ```python
 import matplotlib.pyplot as plt
 
-# Create a 2x2 grid of subplots with shared Y axes
-fig, axs = plt.subplots(2, 2, figsize=(10, 8), sharey=True)
+# Create a 2x2 grid of subplots
+fig, axs = plt.subplots(2, 2, figsize=(10, 8))
 
-# Plot onto individual subplots by index
+# Plot on individual axes
 axs[0, 0].plot([1, 2, 3], [1, 4, 9])
 axs[0, 1].plot([1, 2, 3], [1, 2, 3])
 axs[1, 0].plot([1, 2, 3], [3, 2, 1])
 axs[1, 1].plot([1, 2, 3], [9, 4, 1])
 
-plt.tight_layout()  # Optimizes spacing between subplots
+plt.tight_layout()  # Automatically adjusts subplot margins to avoid overlapping
 plt.show()
 ```
 
 ---
 
-## Formatting & Styling Reference
+## 10. Matplotlib Scatter
 
-For a quick reference of line formatting features, see [`Basic.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Basic.py).
+Use the `scatter()` function to draw a scatter plot. It requires two arrays of the same length, one for the x-axis and one for the y-axis.
 
-### Line Styles
-* `'-'` : Solid line
-* `':'` : Dotted line
-* `'--'` : Dashed line
-* `'-.'` : Dashed/dotted line
+```python
+import matplotlib.pyplot as plt
+import numpy as np
 
-### Common Colors
-* `'r'` : Red
-* `'g'` : Green
-* `'b'` : Blue
-* `'c'` : Cyan
-* `'m'` : Magenta
-* `'y'` : Yellow
-* `'k'` : Black
-* `'w'` : White
+# Set random seed for reproducibility
+np.random.seed(42)
+x = np.random.normal(5.0, 1.0, 100)
+y = np.random.normal(10.0, 2.0, 100)
 
-### Marker Parameters
-* `marker` : Marker style (e.g., `'o'`, `'*'`, `'.'`, `','`, `'x'`, `'+'`)
-* `ms` : Marker Size
-* `mec` : Marker Edge Color
-* `mfc` : Marker Face Color
+plt.scatter(x, y, color='purple', alpha=0.7)
+plt.title("Scatter Plot Example")
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.show()
+```
+
+---
+
+## 11. Matplotlib Bars
+
+Use the `bar()` function to draw vertical bar charts, or `barh()` for horizontal bar charts.
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+categories = np.array(["A", "B", "C", "D"])
+values = np.array([3, 8, 1, 10])
+
+plt.bar(categories, values, color='#4CAF50', width=0.6)
+plt.title("Bar Chart Example")
+plt.show()
+```
+
+---
+
+## 12. Matplotlib Histograms
+
+Use the `hist()` function to create histograms. It takes an array of data and automatically groups them into intervals (bins).
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Generate random normal distribution data
+data = np.random.normal(170, 10, 250)
+
+plt.hist(data, bins=10, color='skyblue', edgecolor='black')
+plt.title("Histogram Example")
+plt.show()
+```
+
+---
+
+## 13. Matplotlib Pie Charts
+
+Use the `pie()` function to draw pie charts. By default, the plotting starts from the x-axis and goes counter-clockwise.
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+sizes = np.array([35, 25, 25, 15])
+labels = ["Apples", "Bananas", "Cherries", "Dates"]
+colors = ["#ff9999", "#66b3ff", "#99ff99", "#ffcc99"]
+
+plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
+plt.title("Pie Chart Example")
+plt.show()
+```
 
 
