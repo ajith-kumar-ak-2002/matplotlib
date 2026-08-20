@@ -399,3 +399,90 @@ import matplotlib.pyplot as plt
 
 # Create a 2x2 grid of subplots
 fig, axs = plt.subplots(2, 2, figsize=(10, 8))
+
+# Plot on individual axes
+axs[0, 0].plot([1, 2, 3], [1, 4, 9])
+axs[0, 1].plot([1, 2, 3], [1, 2, 3])
+axs[1, 0].plot([1, 2, 3], [3, 2, 1])
+axs[1, 1].plot([1, 2, 3], [9, 4, 1])
+
+plt.tight_layout()  # Automatically adjusts subplot margins to avoid overlapping
+plt.show()
+```
+
+---
+
+## 10. Matplotlib Scatter
+
+Use the `scatter()` function to draw a scatter plot. It requires two arrays of the same length, one for the x-axis and one for the y-axis.
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Set random seed for reproducibility
+np.random.seed(42)
+x = np.random.normal(5.0, 1.0, 100)
+y = np.random.normal(10.0, 2.0, 100)
+
+plt.scatter(x, y, color='purple', alpha=0.7)
+plt.title("Scatter Plot Example")
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.show()
+```
+
+---
+
+## 11. Matplotlib Bars
+
+Use the `bar()` function to draw vertical bar charts, or `barh()` for horizontal bar charts.
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+categories = np.array(["A", "B", "C", "D"])
+values = np.array([3, 8, 1, 10])
+
+plt.bar(categories, values, color='#4CAF50', width=0.6)
+plt.title("Bar Chart Example")
+plt.show()
+```
+
+---
+
+## 12. Matplotlib Histograms
+
+Use the `hist()` function to create histograms. It takes an array of data and automatically groups them into intervals (bins).
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Generate random normal distribution data
+data = np.random.normal(170, 10, 250)
+
+plt.hist(data, bins=10, color='skyblue', edgecolor='black')
+plt.title("Histogram Example")
+plt.show()
+```
+
+---
+
+## 13. Matplotlib Pie Charts
+
+Use the `pie()` function to draw pie charts. By default, the plotting starts from the x-axis and goes counter-clockwise.
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+sizes = np.array([35, 25, 25, 15])
+labels = ["Apples", "Bananas", "Cherries", "Dates"]
+colors = ["#ff9999", "#66b3ff", "#99ff99", "#ffcc99"]
+
+plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
+plt.title("Pie Chart Example")
+plt.show()
+```
