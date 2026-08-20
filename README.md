@@ -225,3 +225,17 @@ plt.show()
 You can use the keyword arguments `markeredgecolor` (or `mec`) and `markerfacecolor` (or `mfc`) to customize the colors of the markers:
 * **`mec` (Marker Edge Color):** Set the color of the outline/edge of the marker.
 * **`mfc` (Marker Face Color):** Set the color of the inside/face of the marker.
+
+#### Use both `mec` and `mfc`
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+y_points = np.array([3, 8, 1, 10])
+
+# Set the marker edge to red (mec='r') and the marker face to green (mfc='g')
+plt.plot(y_points, marker='o', ms=20, mec='r', mfc='g')
+plt.show()
+```
+
+---
