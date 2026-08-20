@@ -309,3 +309,93 @@ y_points = np.array([3, 8, 1, 10])
 plt.plot(y_points, lw=20.5)
 plt.show()
 ```
+
+---
+
+### 6. Multiple Lines
+You can plot multiple lines by using multiple `plt.plot()` functions, or by passing multiple x and y coordinate pairs within a single `plt.plot()` function.
+
+#### Option A: Using multiple `plt.plot()` calls
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+y1 = np.array([3, 8, 1, 10])
+y2 = np.array([6, 2, 7, 11])
+
+plt.plot(y1)
+plt.plot(y2)
+plt.show()
+```
+
+#### Option B: Specifying multiple coordinate pairs in a single `plt.plot()`
+The x and y values must come in pairs:
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+x1 = np.array([0, 1, 2, 3])
+y1 = np.array([3, 8, 1, 10])
+x2 = np.array([0, 1, 2, 3])
+y2 = np.array([6, 2, 7, 11])
+
+# Plotting both lines in one function call:
+plt.plot(x1, y1, x2, y2)
+plt.show()
+```
+
+---
+
+## 7. Matplotlib Labels
+
+Use the `xlabel()` and `ylabel()` functions to add labels to the axes, and the `title()` function to add a title to the plot.
+
+* Implementation Reference: [`label&title.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/label&title.py)
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+y = 2 * x + 3
+
+plt.plot(x, y)
+plt.title("Linear Equation Plot")
+plt.xlabel("X Axis Value")
+plt.ylabel("Y Axis Value")
+plt.show()
+```
+
+---
+
+## 8. Matplotlib Grid
+
+Use the `grid()` function to add gridlines to the plot. You can customize the axis (e.g., `axis='x'`), line style, color, and width of the grid.
+
+* Implementation Reference: [`Liner_Equation.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Liner_Equation.py)
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(-10, 10, 100)
+y = x**2
+
+plt.plot(x, y)
+plt.grid(color='gray', linestyle='--', linewidth=0.5)
+plt.show()
+```
+
+---
+
+## 9. Matplotlib Subplot
+
+The `subplots()` function is used to create layouts with multiple plots on a single figure container.
+
+* Implementation Reference: [`matplotlib_subplot.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/matplotlib_subplot.py)
+
+```python
+import matplotlib.pyplot as plt
+
+# Create a 2x2 grid of subplots
+fig, axs = plt.subplots(2, 2, figsize=(10, 8))
