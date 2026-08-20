@@ -239,3 +239,73 @@ plt.show()
 ```
 
 ---
+
+## 6. Matplotlib Line
+
+You can customize the styling, color, width, and quantity of lines plotted on a figure.
+
+* Implementation Reference: [`Linestyle.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Linestyle.py)
+
+### 1. Linestyle
+You can use the keyword argument `linestyle` to change the style of the plotted line:
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+y_points = np.array([3, 8, 1, 10])
+
+plt.plot(y_points, linestyle='dotted')
+plt.show()
+```
+
+### 2. Shorter Syntax
+The `linestyle` parameter can be written in a shorter syntax as `ls`:
+```python
+plt.plot(y_points, ls=':')
+```
+
+### 3. Line Styles Reference Table
+You can choose any of these line styles:
+| Style Name | Short Syntax | Description |
+| :--- | :--- | :--- |
+| `'solid'` (default) | `'-'` | Draws a solid line |
+| `'dotted'` | `':'` | Draws a dotted line |
+| `'dashed'` | `'--'` | Draws a dashed line |
+| `'dashdot'` | `'-.'` | Draws a dashed-dotted line |
+| `'None'` | `''` or `' '` | Draws no line (useful if you only want markers) |
+
+---
+
+### 4. Line Color
+You can use the keyword argument `color` or the shorter `c` to set the color of the line:
+* You can use standard names (like `'red'`, `'green'`, `'blue'`, `'black'`, etc.)
+* You can use short color notations (like `'r'`, `'g'`, `'b'`, `'k'`, etc.)
+* You can use hexadecimal color values (like `'#4CAF50'`, `'#FF5733'`, etc.)
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+y_points = np.array([3, 8, 1, 10])
+
+# Set the line color to green using standard names, or hex values:
+plt.plot(y_points, color='green')
+# plt.plot(y_points, c='#4CAF50')
+plt.show()
+```
+
+---
+
+### 5. Line Width
+You can use the keyword argument `linewidth` or the shorter `lw` to change the width of the line. The value is a floating-point number representing point width:
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+y_points = np.array([3, 8, 1, 10])
+
+# Plot with a 20.5pt wide line:
+plt.plot(y_points, lw=20.5)
+plt.show()
+```
