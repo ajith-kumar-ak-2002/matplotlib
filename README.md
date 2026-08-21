@@ -444,23 +444,85 @@ plt.grid(color='orange', linestyle='--', linewidth=0.5)
 
 ## 9. Matplotlib Subplot
 
-The `subplots()` function is used to create layouts with multiple plots on a single figure container.
+With subplots, you can display multiple plots in a single figure.
 
 * Implementation Reference: [`subplot.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/subplot.py)
 
+### 1. Display Multiple Plots
+You can use the `subplot()` function to draw multiple plots side-by-side or on top of each other:
 ```python
 import matplotlib.pyplot as plt
+import numpy as np
 
-# Create a 2x2 grid of subplots
-fig, axs = plt.subplots(2, 2, figsize=(10, 8))
+# Plot 1:
+x = np.array([0, 1, 2, 3])
+y = np.array([3, 8, 1, 10])
+plt.subplot(1, 2, 1)
+plt.plot(x, y)
 
-# Plot on individual axes
-axs[0, 0].plot([1, 2, 3], [1, 4, 9])
-axs[0, 1].plot([1, 2, 3], [1, 2, 3])
-axs[1, 0].plot([1, 2, 3], [3, 2, 1])
-axs[1, 1].plot([1, 2, 3], [9, 4, 1])
+# Plot 2:
+x = np.array([0, 1, 2, 3])
+y = np.array([10, 20, 30, 40])
+plt.subplot(1, 2, 2)
+plt.plot(x, y)
 
-plt.tight_layout()  # Automatically adjusts subplot margins to avoid overlapping
+plt.show()
+```
+
+### 2. The `subplot()` Function
+The `subplot()` function takes three arguments that describe the layout of the figure. The layout is organized in rows and columns, represented by the first and second arguments. The third argument represents the index of the current plot:
+* `plt.subplot(1, 2, 1)`: The figure has **1 row, 2 columns**, and this plot is the **first** plot.
+* `plt.subplot(1, 2, 2)`: The figure has **1 row, 2 columns**, and this plot is the **second** plot.
+
+#### Stacking Plots Vertically (2 rows, 1 column)
+```python
+# Plot 1:
+plt.subplot(2, 1, 1)
+plt.plot(x, y)
+
+# Plot 2:
+plt.subplot(2, 1, 2)
+plt.plot(x, y)
+```
+
+#### Drawing 6 Plots (2 rows, 3 columns)
+```python
+plt.subplot(2, 3, 1)
+plt.plot(x, y)
+
+plt.subplot(2, 3, 2)
+# ... repeat for indices 3, 4, 5, 6
+```
+
+### 3. Title
+You can add a title to each individual subplot using the `title()` function:
+```python
+# Plot 1:
+plt.subplot(1, 2, 1)
+plt.plot(x, y)
+plt.title("SALES")
+
+# Plot 2:
+plt.subplot(1, 2, 2)
+plt.plot(x, y)
+plt.title("INCOME")
+```
+
+### 4. Super Title
+You can add a title for the entire figure using the `suptitle()` function:
+```python
+# Plot 1:
+plt.subplot(1, 2, 1)
+plt.plot(x, y)
+plt.title("SALES")
+
+# Plot 2:
+plt.subplot(1, 2, 2)
+plt.plot(x, y)
+plt.title("INCOME")
+
+# Set figure-level title:
+plt.suptitle("MY SHOP")
 plt.show()
 ```
 
@@ -468,21 +530,108 @@ plt.show()
 
 ## 10. Matplotlib Scatter
 
-Use the `scatter()` function to draw a scatter plot. It requires two arrays of the same length, one for the x-axis and one for the y-axis.
+A scatter plot is used to display the relationship between two variables, where each observation is represented as a point on the grid.
 
+* Implementation Reference: [`scatter_plot.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/scatter_plot.py)
+
+### 1. Creating Scatter Plots
+Use the `scatter()` function to draw a scatter plot. It requires two arrays of the same length, one for the x-axis and one for the y-axis:
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Set random seed for reproducibility
-np.random.seed(42)
-x = np.random.normal(5.0, 1.0, 100)
-y = np.random.normal(10.0, 2.0, 100)
+# Age and speed of 13 cars
+x = np.array([5, 7, 8, 7, 2, 17, 2, 9, 4, 11, 12, 9, 6])
+y = np.array([99, 86, 87, 88, 111, 86, 103, 87, 94, 78, 77, 85, 86])
 
-plt.scatter(x, y, color='purple', alpha=0.7)
-plt.title("Scatter Plot Example")
-plt.xlabel("X")
-plt.ylabel("Y")
+plt.scatter(x, y)
+plt.show()
+```
+
+### 2. Compare Plots
+You can draw multiple scatter plots on the same figure to compare data (e.g., comparing speed observations from Day 1 and Day 2):
+```python
+# Day 1 data:
+x1 = np.array([5, 7, 8, 7, 2, 17, 2, 9, 4, 11, 12, 9, 6])
+y1 = np.array([99, 86, 87, 88, 111, 86, 103, 87, 94, 78, 77, 85, 86])
+plt.scatter(x1, y1)
+
+# Day 2 data:
+x2 = np.array([2, 2, 8, 1, 15, 8, 12, 9, 7, 3, 11, 4, 7, 14, 12])
+y2 = np.array([100, 105, 84, 105, 90, 99, 90, 95, 94, 100, 79, 112, 91, 80, 85])
+plt.scatter(x2, y2)
+
+plt.show()
+```
+
+### 3. Colors
+You can set your own custom color for all the markers using the `color` or `c` parameter:
+```python
+# Plot markers with a custom color name or Hex color:
+plt.scatter(x1, y1, color='hotpink')
+plt.scatter(x2, y2, color='#88c999')
+```
+
+### 4. Color Each Dot
+If you want to assign a unique color to each dot, you can pass an array of colors to the `c` argument (note: you must use `c` for this, not `color`):
+```python
+colors = np.array(["red","green","blue","yellow","pink","black","orange","purple","beige","brown","gray","cyan","magenta"])
+plt.scatter(x, y, c=colors)
+```
+
+---
+
+### 5. ColorMap
+A colormap is a pre-defined list of colors, where each color has a value ranging from 0 to 100. Matplotlib has dozens of built-in colormaps.
+
+### 6. How to Use the ColorMap
+You can specify a colormap by passing the `cmap` parameter (e.g. `cmap='viridis'`) along with an array of values for the `c` parameter. To display the scale bar next to the chart, call `plt.colorbar()`:
+```python
+# Map numbers to colors on the 'viridis' colormap
+colors = np.array([0, 10, 20, 30, 40, 45, 50, 55, 60, 70, 80, 90, 100])
+
+plt.scatter(x, y, c=colors, cmap='viridis')
+plt.colorbar()
+plt.show()
+```
+
+### 7. Available ColorMaps
+Here are some commonly used built-in colormaps:
+* `'viridis'` (Default)
+* `'plasma'`
+* `'inferno'`
+* `'magma'`
+* `'cividis'`
+* `'rainbow'`
+* `'Accent'`
+* `'nipy_spectral'`
+
+---
+
+### 8. Size
+You can change the size of each marker by passing an array of sizes to the `s` argument:
+```python
+sizes = np.array([20, 50, 100, 200, 500, 1000, 60, 90, 10, 300, 600, 800, 75])
+plt.scatter(x, y, s=sizes)
+```
+
+### 9. Alpha
+You can adjust the transparency of the markers using the `alpha` parameter (accepts values between `0.0` (fully transparent) and `1.0` (fully opaque)):
+```python
+plt.scatter(x, y, s=sizes, alpha=0.5)
+```
+
+### 10. Combine Color Size and Alpha
+You can combine custom colors (via colormaps), sizes, and transparency values all in one single scatter plot:
+```python
+# Generate 100 random values
+x = np.random.randint(100, size=(100))
+y = np.random.randint(100, size=(100))
+colors = np.random.randint(100, size=(100))
+sizes = 10 * np.random.randint(100, size=(100))
+
+plt.scatter(x, y, c=colors, s=sizes, alpha=0.5, cmap='nipy_spectral')
+plt.colorbar()
 plt.show()
 ```
 
@@ -490,17 +639,57 @@ plt.show()
 
 ## 11. Matplotlib Bars
 
-Use the `bar()` function to draw vertical bar charts, or `barh()` for horizontal bar charts.
+With Matplotlib, you can display categories using vertical or horizontal bar charts.
 
+* Implementation Reference: [`bar_plot.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/bar_plot.py)
+
+### 1. Creating Bars
+You can use the `bar()` function to draw vertical bar charts:
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
 
-categories = np.array(["A", "B", "C", "D"])
-values = np.array([3, 8, 1, 10])
+x = np.array(["A", "B", "C", "D"])
+y = np.array([3, 8, 1, 10])
 
-plt.bar(categories, values, color='#4CAF50', width=0.6)
-plt.title("Bar Chart Example")
+plt.bar(x, y)
+plt.show()
+```
+
+### 2. Horizontal Bars
+If you want the bars to be displayed horizontally instead of vertically, use the `barh()` function:
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array(["A", "B", "C", "D"])
+y = np.array([3, 8, 1, 10])
+
+plt.barh(x, y)
+plt.show()
+```
+
+### 3. Bar Color
+You can use the `color` argument to set the color of the bars:
+```python
+# Set vertical/horizontal bars color:
+plt.bar(x, y, color="red")
+# plt.barh(x, y, color="#4CAF50")
+```
+
+### 4. Bar Width
+You can use the `width` argument to set the width of vertical bars (the default width is `0.8`):
+```python
+# Draw 4 very thin vertical bars:
+plt.bar(x, y, width=0.1)
+plt.show()
+```
+
+### 5. Bar Height
+For horizontal bars, use the `height` argument to adjust the bar thickness (the default height is `0.8`):
+```python
+# Draw 4 very thin horizontal bars:
+plt.barh(x, y, height=0.1)
 plt.show()
 ```
 
