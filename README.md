@@ -751,17 +751,97 @@ plt.show()
 
 ## 13. Matplotlib Pie Charts
 
-Use the `pie()` function to draw pie charts. By default, the plotting starts from the x-axis and goes counter-clockwise.
+With Pyplot, you can use the `pie()` function to draw pie charts.
 
+* Implementation Reference: [`pie_chart.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/pie_chart.py)
+
+### 1. Creating Pie Charts
+The `pie()` function draws one wedge for each value in the array:
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
 
-sizes = np.array([35, 25, 25, 15])
-labels = ["Apples", "Bananas", "Cherries", "Dates"]
-colors = ["#ff9999", "#66b3ff", "#99ff99", "#ffcc99"]
+y = np.array([35, 25, 25, 15])
 
-plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
-plt.title("Pie Chart Example")
+plt.pie(y)
+plt.show()
+```
+By default, the plotting of the first wedge starts from the x-axis and moves counterclockwise. The size of each wedge is determined by dividing the value by the sum of all values: `x/sum(x)`.
+
+---
+
+### 2. Labels
+Add labels to the pie chart with the `labels` parameter. It must be an array with one label for each wedge:
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+y = np.array([35, 25, 25, 15])
+mylabels = ["Apples", "Bananas", "Cherries", "Dates"]
+
+plt.pie(y, labels=mylabels)
+plt.show()
+```
+
+---
+
+### 3. Start Angle
+By default, the start angle is 0 degrees (at the x-axis). You can change it using the `startangle` parameter:
+```python
+# Start the first wedge at 90 degrees:
+plt.pie(y, labels=mylabels, startangle=90)
+plt.show()
+```
+
+---
+
+### 4. Explode
+To make one of the wedges stand out, use the `explode` parameter. It must be an array of values representing how far from the center each wedge is displayed:
+```python
+# Pull the "Apples" wedge 0.2 from the center of the pie:
+myexplode = [0.2, 0, 0, 0]
+
+plt.pie(y, labels=mylabels, explode=myexplode)
+plt.show()
+```
+
+---
+
+### 5. Shadow
+Add a shadow to the pie chart by setting the `shadow` parameter to `True`:
+```python
+plt.pie(y, labels=mylabels, explode=myexplode, shadow=True)
+plt.show()
+```
+
+---
+
+### 6. Colors
+Set the color of each wedge using the `colors` parameter:
+```python
+mycolors = ["black", "hotpink", "b", "#4CAF50"]
+
+plt.pie(y, labels=mylabels, colors=mycolors)
+plt.show()
+```
+You can use standard color names, hex color values, or short colors codes (`'r'`, `'g'`, `'b'`, `'c'`, `'m'`, `'y'`, `'k'`, `'w'`).
+
+---
+
+### 7. Legend
+To add a list of explanations for each wedge, call the `legend()` function:
+```python
+plt.pie(y, labels=mylabels)
+plt.legend()
+plt.show()
+```
+
+---
+
+### 8. Legend With Header
+To add a header to the legend, pass the `title` parameter to the `legend()` function:
+```python
+plt.pie(y, labels=mylabels)
+plt.legend(title="Four Fruits:")
 plt.show()
 ```
