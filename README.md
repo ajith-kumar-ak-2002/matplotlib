@@ -697,17 +697,53 @@ plt.show()
 
 ## 12. Matplotlib Histograms
 
-Use the `hist()` function to create histograms. It takes an array of data and automatically groups them into intervals (bins).
+### 1. Histogram
+A histogram is a graph showing frequency distributions. It shows the number of observations within each given interval.
 
+**Example:** Say you ask for the height of 250 people. You might end up with a histogram showing distribution values like this:
+* 2 people from 140 to 145cm
+* 5 people from 145 to 150cm
+* 15 people from 151 to 156cm
+* 31 people from 157 to 162cm
+* 46 people from 163 to 168cm
+* 53 people from 168 to 173cm
+* 45 people from 173 to 178cm
+* 28 people from 179 to 184cm
+* 21 people from 185 to 190cm
+* 4 people from 190 to 195cm
+
+---
+
+### 2. Create Histogram
+In Matplotlib, we use the `hist()` function to create histograms. The `hist()` function reads an array of numbers and groups them into intervals (bins) to generate the chart.
+
+For this example, we use NumPy to randomly generate an array of 250 values concentated around 170 (average height) with a standard deviation of 10.
+
+* Implementation Reference: [`Histograms_plot.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Histograms_plot.py)
+
+#### A Normal Data Distribution by NumPy:
+```python
+import numpy as np
+
+# Generate 250 values around mean 170, std dev 10
+x = np.random.normal(170, 10, 250)
+print(x)
+```
+
+**Output format (randomly generated array):**
+```text
+[167.62255766 175.32495609 152.84661337 165.50264047 163.17457988 162.29867872 ...]
+```
+
+#### Creating the Histogram:
+Pass the generated array directly to `plt.hist()`:
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Generate random normal distribution data
-data = np.random.normal(170, 10, 250)
+x = np.random.normal(170, 10, 250)
 
-plt.hist(data, bins=10, color='skyblue', edgecolor='black')
-plt.title("Histogram Example")
+plt.hist(x)
 plt.show()
 ```
 
