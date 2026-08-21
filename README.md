@@ -344,46 +344,100 @@ plt.plot(x1, y1, x2, y2)
 plt.show()
 ```
 
----
+## 7. Matplotlib Labels and Title
 
-## 7. Matplotlib Labels
-
-Use the `xlabel()` and `ylabel()` functions to add labels to the axes, and the `title()` function to add a title to the plot.
+With Matplotlib, you can label the axes and add a title to your plot to make the visualization easy to understand.
 
 * Implementation Reference: [`label&title.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/label&title.py)
 
+### 1. Create Labels for a Plot
+You can use the `xlabel()` and `ylabel()` functions to set a label for the x-axis and y-axis:
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
 
-x = np.linspace(0, 10, 100)
-y = 2 * x + 3
+x = np.array([80, 85, 90, 95, 100, 105, 110, 115, 120, 125])
+y = np.array([240, 250, 260, 270, 280, 290, 300, 310, 320, 330])
 
 plt.plot(x, y)
-plt.title("Linear Equation Plot")
-plt.xlabel("X Axis Value")
-plt.ylabel("Y Axis Value")
+plt.xlabel('Average Pulse')
+plt.ylabel('Calorie Burnage')
+plt.show()
+```
+
+### 2. Create a Title for a Plot
+You can use the `title()` function to set a title for the plot:
+```python
+plt.plot(x, y)
+plt.title('Sports Watch Data')
+plt.xlabel('Average Pulse')
+plt.ylabel('Calorie Burnage')
+plt.show()
+```
+
+### 3. Set Font Properties for Title and Labels
+You can use the `fontdict` parameter in `xlabel()`, `ylabel()`, and `title()` to set font properties (like family, color, and size):
+```python
+font1 = {'family': 'serif', 'color': 'blue', 'size': 20}
+font2 = {'family': 'serif', 'color': 'darkred', 'size': 15}
+
+plt.plot(x, y)
+plt.title('Sports Watch Data', fontdict=font1)
+plt.xlabel('Average Pulse', fontdict=font2)
+plt.ylabel('Calorie Burnage', fontdict=font2)
+plt.show()
+```
+
+### 4. Position the Title
+You can use the `loc` parameter in `title()` to position the title. Legal values are: `'left'`, `'right'`, and `'center'` (default):
+```python
+plt.plot(x, y)
+plt.title('Sports Watch Data', loc='left')
+plt.xlabel('Average Pulse')
+plt.ylabel('Calorie Burnage')
 plt.show()
 ```
 
 ---
 
-## 8. Matplotlib Grid
+## 8. Matplotlib Adding Grid Lines
 
-Use the `grid()` function to add gridlines to the plot. You can customize the axis (e.g., `axis='x'`), line style, color, and width of the grid.
+You can display grid lines on your plot to make reading data coordinates easier.
 
-* Implementation Reference: [`Liner_Equation.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/Liner_Equation.py)
+* Implementation Reference: [`grid_line.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/grid_line.py)
 
+### 1. Add Grid Lines to a Plot
+You can use the `grid()` function to add grid lines to the plot:
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
 
-x = np.linspace(-10, 10, 100)
-y = x**2
+x = np.array([80, 85, 90, 95, 100, 105, 110, 115, 120, 125])
+y = np.array([240, 250, 260, 270, 280, 290, 300, 310, 320, 330])
 
 plt.plot(x, y)
-plt.grid(color='gray', linestyle='--', linewidth=0.5)
+plt.title("Sports Watch Data")
+plt.xlabel("Average Pulse")
+plt.ylabel("Calorie Burnage")
+
+plt.grid()
 plt.show()
+```
+
+### 2. Specify Which Grid Lines to Display
+You can use the `axis` parameter in the `grid()` function to specify which grid lines to display. Legal values are `'x'`, `'y'`, and `'both'` (default):
+```python
+# Display only grid lines for the x-axis:
+plt.grid(axis='x')
+
+# Display only grid lines for the y-axis:
+# plt.grid(axis='y')
+```
+
+### 3. Set Line Properties for the Grid
+You can set the line properties of the grid, like color, linestyle, and linewidth, by passing corresponding arguments to the `grid()` function:
+```python
+plt.grid(color='orange', linestyle='--', linewidth=0.5)
 ```
 
 ---
@@ -392,7 +446,7 @@ plt.show()
 
 The `subplots()` function is used to create layouts with multiple plots on a single figure container.
 
-* Implementation Reference: [`matplotlib_subplot.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/matplotlib_subplot.py)
+* Implementation Reference: [`subplot.py`](file:///c:/Users/Ajith%20Kumar/Desktop/matplotlib/subplot.py)
 
 ```python
 import matplotlib.pyplot as plt
